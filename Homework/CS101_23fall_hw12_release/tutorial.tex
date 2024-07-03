@@ -1,0 +1,73 @@
+\titledquestion{Tutorial on how to prove that a particular problem is in $\NP \text{-} \Complete$}[0]
+
+To prove problem $A$ is in $\NP \text{-} \Complete$, your answer should include:
+\begin{enumerate}
+
+  \item Prove that problem $A$ is in $\NP$ by showing:
+  \begin{enumerate}
+      \item What your {\color{red} polynomial-size} certificate is.
+      \item What your {\color{red} polynomial-time} certifier is.
+  \end{enumerate}
+
+  \item Choose a problem $B$ in $\NP \text{-} \Complete$ to reduce from.
+  
+  \item Construct your {\color{red} polynomial-time many-one reduction} $f$ that maps instances of problem $B$ to instances of problem $A$. 
+  
+  (polynomial-time many-one reduction = polynomial transformation = Karp reduction, see presenter notes of page 7 \& 61 in lecture slides (.pptx file) for more details.) 
+
+  \item Prove the correctness of your reduction (i.e. Prove that your reduction $f$ do map $yes$-instance of problem $B$ to $yes$-instance of problem $A$ and map $no$-instance of problem $B$ to $no$-instance of problem $A$) by showing:
+  \begin{enumerate}
+      \item $x$ is a $yes$-instance of problem $B$ $\Rightarrow$ $f(x)$ is a $yes$-instance of problem $A$.
+      \item $x$ is a $yes$-instance of problem $B$ $\Leftarrow$ $f(x)$ is a $yes$-instance of problem $A$.
+  \end{enumerate}
+  (The statement above is the contrapositive of the statement ``$x$ is a $no$-instance of problem $B$ $\Rightarrow$ $f(x)$ is a $no$-instance of problem $A$.''. These two statements are logically equivalent, but the one listed above would be much eaiser to prove.)
+\end{enumerate}
+
+
+\section*{Proof Example}
+
+Prove that the decision version of $\mathsf{Set\text{-}Cover}$ is in $\NP \text{-} \Complete$. Recall that the $yes$-instances of the decision version of $\mathsf{Set\text{-}Cover}$ is:
+\begin{align*}
+\mathsf{Set\text{-}Cover}= \left\{\langle{U, S_1, \ldots, S_n, k \rangle}~\middle|~~~
+ \begin{aligned}
+     &n \in \mathbb{Z}^+, S_1, \ldots, S_n \subseteq U \text{ and there exist $k$ sets } S_{i_1}, \ldots, \\& S_{i_k} 
+     \text{that cover all of $U$, i.e., }
+     S_{i_1} \cup S_{i_2} \cup \dots \cup S_{i_k} = U
+ \end{aligned}
+\right\}
+\end{align*}
+\textcolor{blue}{
+  \begin{enumerate}
+    \item Our certificate and certifier for $\mathsf{Set\text{-}Cover}$ goes as follows:
+    \begin{enumerate}
+        \item A set of indices $\left\{i_1, \dots, i_k\right\} \subseteq \left\{1, 2, \dots, n\right\}$, whose size is polynomial of input size .
+        \item Check whether $S_{i_1} \cup S_{i_2} \cup \dots \cup S_{i_k} = U$, whose run-time is polynomial of input size.
+    \end{enumerate}
+    \item We choose the decision version of $\mathsf{Vertex\text{-}Cover}$ to reduce from. Recall that the $yes$-instances of the decision version of $\mathsf{Vertex\text{-}Cover}$ is:
+    \begin{equation*}
+        \mathsf{Vertex\text{-}Cover} = \left\{\langle{G,k'\rangle}~\middle|~~~
+    \begin{aligned}
+        &\text{$G$ is an undirected graph and there exists a set of} \\&\text{$k'$ vertices that touches all edges in $G$.}
+    \end{aligned}\right\}
+    \end{equation*}
+    (We use $k'$ here because $k$ has already appeared before.)
+    \item Given an undirected graph $G = (V, E)$ and an postive integer $k' \in \mathbb{Z}^+$, we construct $f\left( \langle G, k'\rangle \right) = \langle{U, S_1, \ldots, S_n, k \rangle}$ as follows:
+    \begin{enumerate}
+        \item $U = E$, which represents the edges from the graph.
+        \item Define $m = |V|$ and let $n = m$, which means the number of sets equals the number of vertices in $G$.
+        \item Label elements in $V$ as $V = \left\{v_1, v_2, \dots, v_m\right\}$. For each $i \in \left\{1, \dots, m \right\}$, the set $S_i$ is defined as $S_i = \left\{ e \in E \: \middle| \: e = (v_i, u) \text{ for some } u \in V \setminus \left\{v\right\} \right\}$. In other word, $S_i$ is the set of edges incident to $v_i$.
+        \item $k = k'$.
+    \end{enumerate}
+    Our reduction takes polynomial time because:
+    \begin{enumerate}
+        \item Generating each $S_i$ just takes polynomial time since each edge is visited twice (once for each endpoint).
+        \item Generating $U$ and $k$ trivially takes polynomial time because they are copied directly from the input.
+    \end{enumerate}
+    \item Then we prove the correctness of our reduction as follows:
+    \begin{enumerate}
+        \item ``$\Rightarrow$'': Let $\langle G, k' \rangle$ be a $yes$-instance of $\mathsf{Vertex\text{-}Cover}$ and let $V^* = \left\{v_{i_1}, \dots, v_{i_{k'}}\right\}$ be the choice of $k'$ vertices that form the vertex cover. Then for each $e \in E$, there is some $v_{i_j}$ ($j \in [k']$) that is an endpoint of $e$, which directly translates to for each $e \in U$, there is some $S_{i_j}$ ($j \in [k']$) containing $e$ by our construction of $f$. Hence, we claim that the sets $S_{i_1}, \dots, S_{i_{k'}}$ form a set cover of size $k = k'$ for $U$.
+        \item ``$\Leftarrow$'': Let $\langle{U, S_1, \ldots, S_m, k \rangle}$ be a $yes$-instance of $\mathsf{Set \text{-} Cover}$ and let $\left\{S_{i_1}, \dots, S_{i_k}\right\}$ be the choice of $k$ sets that form the set cover. Then for each $e \in U$, there is some $S_{i_j}$ ($j \in [k]$) that contains $e$, which directly translates to for each $e \in E$, there is some $v_{i_j}$ ($j \in [k]$) that is an endpoint of $e$. Hence, we claim that the sets $\left\{v_{i_1}, \dots, v_{i_k}\right\}$ form a vertex cover of size $k' = k$ for $G$.
+    \end{enumerate}
+  \end{enumerate}
+  Hence, the decision version of $\mathsf{Set\text{-}Cover}$ is in $\NP \text{-} \Complete$.
+}

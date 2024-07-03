@@ -1,0 +1,114 @@
+\titledquestion{Reductions}
+
+In this question, you are required to construct 3 \textbf{correct} {\color{blue} direct} {\color{red} polynomial-time many-one reduction} that respectively:
+\begin{enumerate}
+    \item maps instances of $\mathsf{Independent \text{-} Set}$ to instances of $\mathsf{Clique}$.
+    \item maps instances of $\mathsf{Subset \text{-} Sum}$ to instances of $\mathsf{Knapsack}$ (decision version).
+    \item maps instances of $\mathsf{3 \text{-} color}$ to instances of $\mathsf{k \text{-} color}$ ($k$ is a \textbf{given} positive integer and $k \geq 4$).
+\end{enumerate}
+In this question, you are \textbf{not} required to prove the correctness of your reductions and it suffices to write your \textbf{reduction only}. However, make sure your reduction is correct to receive points.
+
+\textbf{\color{red} Reminder: Don't forget state that your reduction takes polynomial time!}
+
+\begin{parts}
+    \part[3] Consider the following problems:
+    
+    \textbf{1.}$\mathsf{Independet \text{-} Set}$: Given a undirected graph $G = (V, E)$ and a positive integer $k$, determine whether there exists a subset $k$ (or more) vertices of $V$ such that no two of them are adjacent (i.e. does $G$ contains an independent set of size at least $k$).
+
+    The $yes$-instances of $\mathsf{Independet \text{-} Set}$ is:
+    \begin{equation*}
+        \mathsf{Independet \text{-} Set} = \left\{\langle{G,k\rangle}~\middle|~~~
+    \begin{aligned}
+        &\text{$G = (V, E)$ is an undirected graph that contains} \\&\text{$k$ vertices with no edges between them.}
+    \end{aligned}\right\}
+    \end{equation*}
+    
+    \textbf{2.} $\mathsf{Clique}$: Given a undirected graph $G' = (V', E')$ and a positive integer $k'$, determine whether there exists a subset $k'$ (or more) vertices of $V'$ such that \textbf{any} two of them are adjacent (i.e. does $G'$ contains a clique of size at least $k'$).
+
+    The $yes$-instances of $\mathsf{Clique}$ is:
+    \begin{equation*}
+        \mathsf{Clique} = \left\{\langle{G',k'\rangle}~\middle|~~~
+    \begin{aligned}
+        &\text{$G' = (V', E')$ is an undirected graph that contains $k'$} \\&\text{vertices such that they are connected to each other.}
+    \end{aligned}\right\}
+    \end{equation*}
+    
+    Construct a \textbf{correct} {\color{blue} direct} {\color{red} polynomial-time many-one reduction} $f_1$ that maps instances of $\mathsf{Independent \text{-} Set}$ to instances of $\mathsf{Clique}$.
+
+    \begin{solution}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Replace `\vspace{2.5in}' with your answer.
+    \vspace{2.5in}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \end{solution}
+
+    \newpage
+
+    \part[3] Consider the following problems:
+    
+    \textbf{3.}$\mathsf{Subset \text{-} Sum}$: Given an array \(A=[a_1,a_2,...,a_m]\) of positive integers and a positive integer $k$ such that $k \leq \sum_{i\in [m]}a_i$, determine whether there exists a subset $S \subseteq [m]$ such that $\sum_{i\in S}a_i = k$ (i.e. determine whether there exists a subset of $A$ such that the sum of its elements is $k$).
+
+    The $yes$-instances of $\mathsf{Subset \text{-} Sum}$ is:
+    \begin{equation*}
+        \mathsf{Subset \text{-} Sum} = \left\{\langle{a_1, a_2, \ldots, a_m, k\rangle}~\middle|~~~
+    \begin{aligned}
+        &m\in \mathbb{Z}^+, a_1, \ldots, a_m, k \in \mathbb{Z}^+ \text{ and there} \\ &\text{exists a subset of the $a_i$'s that sum up}\\ & \text{ to $k$, i.e. }\exists{\: S\subseteq [m]}: \sum_{i\in S} a_i = k.
+    \end{aligned}\right\}
+    \end{equation*}
+
+    \textbf{4.}$\mathsf{Knapsack}$: Given $n \in \mathbb{Z}^+$ items where the weight and value of each item is $w_i \in \mathbb{Z}^+$ and $v_i \in \mathbb{R}^+$ respectively as well as fixed $W \in \mathbb{Z}^+$ and $V \in \mathbb{R}^+$, determine whether there exists a subset $P \subseteq [n]$ such that $\sum_{i\in P}w_i \leq W$ and $\sum_{i\in P}v_i \geq V$ (i.e. determine whether there exists a subset of items such that the sum of their weights is no more than $W$ while the sum of their values is no less than $V$).
+
+    The $yes$-instances of $\mathsf{Knapsack}$ is:
+    \begin{equation*}
+        \mathsf{Knapsack} = \left\{\langle{w_1, \ldots, w_n, v_1, \ldots, v_n, W, V\rangle}~\middle|~~~
+    \begin{aligned}
+        &n, w_1, \ldots, w_n, v_1, \ldots, v_n, V, W \in \mathbb{Z}^+
+        \\ &\text{and there exists a subset $P \subseteq [n]$} \\ &\text{such that} \sum_{i\in P} w_i \leq W \text{ and } \sum_{i\in P} v_i \geq V.
+    \end{aligned}\right\}
+    \end{equation*}
+    
+    Construct a \textbf{correct} {\color{blue} direct} {\color{red} polynomial-time many-one reduction} $f_2$ that maps instances of $\mathsf{Subset \text{-} Sum}$ to instances of $\mathsf{Knapsack}$.
+
+    \begin{solution}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Replace `\vspace{2.5in}' with your answer.
+    \vspace{2.5in}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \end{solution}
+
+    \newpage
+
+    \part[3] Consider the following problems:
+
+    \textbf{5.}$\mathsf{3 \text{-} Color}$: Given a undirected graph $G = (V, E)$, determine whether its vertices can be colored \textbf{within} 3 different colors such that no adjacent nodes have the same color?
+
+    The $yes$-instances of $\mathsf{3 \text{-} Color}$ is:
+    \begin{equation*}
+        \mathsf{3 \text{-} Color} = \left\{\langle{G\rangle}~\middle|~~~
+    \begin{aligned}
+        &\text{$G = (V, E)$ is an undirected graph such that its} \\&\text{vertices can be colored \textbf{within} 3 different colors} \\&\text{such that no adjacent nodes have the same color.}
+    \end{aligned}\right\}
+    \end{equation*}
+
+    \textbf{6.}$\mathsf{k \text{-} Color}$: For fixed positive integer $k \geq 4$, given a undirected graph $G' = (V', E')$, determine whether its vertices can be colored \textbf{within} $k$ different colors such that no adjacent nodes have the same color?
+
+    The $yes$-instances of $\mathsf{k \text{-} Color}$ is:
+    \begin{equation*}
+        \mathsf{k \text{-} Color} = \left\{\langle{G'\rangle}~\middle|~~~
+    \begin{aligned}
+        &\text{$G' = (V', E')$ is an undirected graph such that its} \\&\text{vertices can be colored \textbf{within} $k$ different colors} \\&\text{such that no adjacent nodes have the same color.}
+    \end{aligned}\right\}
+    \end{equation*}
+    
+    Construct a \textbf{correct} {\color{blue} direct} {\color{red} polynomial-time many-one reduction} $f_3$ that maps instances of $\mathsf{3 \text{-} Color}$ to instances of $\mathsf{k \text{-} Color}$.
+    
+    Reminder: You may \textbf{not} apply mathematical induction for $k$ here. A {\color{blue} direct} reduction is required.
+
+    \begin{solution}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Replace `\vspace{2.5in}' with your answer.
+    \vspace{2.5in}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \end{solution}
+    
+\end{parts}

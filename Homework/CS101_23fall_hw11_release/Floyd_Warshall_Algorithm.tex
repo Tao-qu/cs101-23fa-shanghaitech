@@ -1,0 +1,34 @@
+\titledquestion{Floyd Warshall Algorithm}
+\begin{parts}
+\part[6] Consider the following 
+ implementation of the Floyd-Warshall algorithm. Assume $w_{ij}=\infty$ where there is no edge between vertex $i$ and vertex $j$, and assume $w_{ii}=0$ for every vertex $i$. Add some codes in the blank lines to detect whether there is negative cycles in the graph. (You may not use all blank lines.)
+
+
+\begin{cpp} 
+bool detectNegCycle(int graph[][V]) { 
+    int dist[V][V], i, j, k; 
+   
+    for (i = 0; i < V; i++) 
+        for (j = 0; j < V; j++) 
+            dist[i][j] = graph[i][j]; 
+   
+    for (k = 0; k < V; k++) { 
+        for (i = 0; i < V; i++) { 
+            for (j = 0; j < V; j++) { 
+                if (dist[i][k] + dist[k][j] < dist[i][j]) 
+                        dist[i][j] = dist[i][k] + dist[k][j]; 
+            } 
+        } 
+    } 
+    
+    _____________________________________
+    _____________________________________
+    _____________________________________
+    _____________________________________
+    _____________________________________
+            
+    return false;  
+} 
+
+\end{cpp}
+\end{parts}

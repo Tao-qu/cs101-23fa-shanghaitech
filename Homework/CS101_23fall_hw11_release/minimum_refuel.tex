@@ -1,0 +1,24 @@
+\titledquestion{Minimum Cost Refueling}
+
+You are planning to from city A to city B on a highway.
+The distance between A and B is $d$ kilometers.
+The vehicle departs with $f_0$ units of fuel.
+Each unit of fuel makes the vehicle travel one kilometer.
+
+There are $n$ gas stations along the way.
+The $i$-th station is situated $p_i$ kilometers away from city A.
+Note that $0<p_1<p_2<\cdots<p_n<d$.
+
+If the vehicle chooses to refuel at the $i$-th station, $f_i>0$ units would be added to the fuel tank whose capacity is unlimited, which costs you \$$c_i$.
+You have a budget $B$, which means that the sum of costs on refueling is at most \$$B$.
+
+Please design a \textbf{dynamic programming} algorithm that returns \textbf{the minimum cost of refueling} to make sure the vehicle reaches the destination if the vehicle can reach the target, or returns $\varnothing$ if your budget is not enough or the fuel is not enough to support you to reach city B.
+
+\begin{parts}
+\part[3] Define the subproblems for $i\in[0,n],j\in[0,B]$: $OPT(i, j)=$ the maximum distance you can drive if you spend \textbf{at most} \$$j$ among the first $i$ stations. Give your Bellman equation to solve the subproblems.
+
+\part[2] What is the answer to this question in terms of $OPT$?
+
+\part[1] What is the runtime complexity of your algorithm? (answer in $\Theta(\cdot)$)
+
+\end{parts}

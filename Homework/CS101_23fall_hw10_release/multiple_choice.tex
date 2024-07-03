@@ -1,0 +1,61 @@
+\titledquestion{Multiple Choices}
+
+Each question has \textbf{one or more} correct answer(s). Select all the correct answer(s). For each question, you will get 0 points if you select one or more wrong answers, but you will get 1 point if you select a non-empty subset of the correct answers.
+
+Write your answers in the following table.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Note: The `LaTeX' way to answer a multiple-choices question is to replace `\choice'
+% with `\CorrectChoice', as what you did in the first question. However, there are still
+% many students who would like to handwrite their homework. To make TA's work easier,
+% you have to fill your selected choices in the table below, no matter whether you use 
+% LaTeX or not.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|}
+		\hline 
+		(a) & (b) & (c) \\
+		\hline
+  		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		% YOUR ANSWER HERE.
+		 &  &      \vspace{0.4cm}\\
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\hline
+	\end{tabular} 
+\end{table}
+
+\begin{parts}
+
+\part[2] Which of the following statements about Dijkstra's algorithm is/are true? 
+
+\begin{choices}
+    \choice Once a vertex is marked as visited, its distance will never be updated. 
+    \choice The time complexity of Dijkstra's algorithm using complete binary heap is $\Theta(|E|\log |V|)$.
+    \choice If we use Dijkstra's algorithm to find the distance from vertex $s$ to vertex $t$, then when we first push $t$ into the heap, we find the shortest path from $s$ to $t$ and stop the algorithm.
+    \choice If vertex $u$ is marked visited before $v$, then $\texttt{dist[u]}\le \texttt{dist[v]}$.
+\end{choices}
+
+\part[2] Which of the following statements about A* search algorithm is/are true? 
+
+\begin{choices}
+    \choice If we use heuristic function $h(u)=c$ for any $u\in V$ where $c$ is a positive constant, then the A* search algorithm will be the same with Dijkstra's algorithm. 
+    \choice An admissible heuristic function ensures optimality of both A* tree search algorithm and A* graph search algorithm. 
+    \choice A consistent heuristic function ensures optimality of both A* tree search algorithm and A* graph search algorithm. 
+    \choice Suppose we want to search for the shortest path from a city to another on a map. If we use the heuristic function $h(u)=dis(u,t)$, the Euclidean distance between $u$ and the destination $t$, then this is a consistent heuristic function. 
+\end{choices}
+
+\part[2] Which of the following statements about Bellman-Ford algorithm is/are true? 
+
+\begin{choices}
+    \choice In a DAG with probably negative edge weights, Bellman-Ford algorithm is guaranteed to find the shortest path from source $s$ to any vertex if it can be reached from $s$.
+    \choice Suppose the unique shortest path from source $s$ to a vertex $t$ has $l$ edges. It is impossible that we find this shortest path from $s$ to $t$ in less than $l$ iterations. 
+    \choice If during the $i$-th iteration, there is no update on \ttt{dist} array, then we can stop the algorithm but still get correct results.
+    \choice After Bellman-Ford algorithm, the \ttt{prev} array defines a tree rooted at the source vertex, and the tree is also an MST of the original graph.
+\end{choices}
+
+
+    
+\end{parts}
+

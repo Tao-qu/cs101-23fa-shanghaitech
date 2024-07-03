@@ -1,0 +1,64 @@
+\titledquestion{Minimum Refueling}
+
+A vehicle is driving from city A to city B on a highway.
+The distance between A and B is $d$ kilometers.
+The vehicle departs with $f_0$ units of fuel.
+Each unit of fuel makes the vehicle travel one kilometer.
+There are $n$ gas stations along the way.
+Station $i$, denoted as $S_i$, is situated $p_i$ kilometers away from city A\@.
+If the vehicle chooses to refuel at $S_i$, $f_i$ units would be added to the fuel tank whose capacity is unlimited.
+
+Your job is to design a \textbf{greedy} algorithm that returns \textbf{the minimum number of refueling} to make sure the vehicle reaches the destination.
+
+For example, if $d=100, f_0=20, (f_1,f_2,f_3,f_4)=(30,60,10,20), (p_1,p_2,p_3,p_4)=(10,20,30,60)$, the algorithm should return $2$.
+There are two ways of refueling $2$ times.
+The first one is:
+\begin{itemize}
+    \item Start from city A with $20$ units of fuel.
+    \item Drive to station $1$ with $10$ units of fuel left, and refuel to $40$ units.
+    \item Drive to station $2$ with $30$ units of fuel left, and refuel to $90$ units.
+    \item Drive to city B with $10$ units of fuel left.
+\end{itemize}
+And the second one is:
+\begin{itemize}
+    \item Start from city A with $20$ units of fuel.
+    \item Drive to station $2$ with $0$ units of fuel left, and refuel to $60$ units.
+    \item Drive to station $4$ with $20$ units of fuel left, and refuel to $40$ units.
+    \item Drive to city B with $0$ units of fuel left.
+\end{itemize}
+
+Note that:
+\begin{enumerate}
+    \item[1.] $0<p_1<p_2<\cdots<p_n<d$, and $\forall i\in[0,n],f_i\ge 1$.
+    \item[2.] If the vehicle cannot reach the target, return \texttt{-1}.
+    \item[3.] The time complexity of your algorithm should be $O(n\log n)$.
+    You should use a max heap, and simply write \lstinline{heap.push(var)}, \lstinline{var = heap.pop()} in your \textbf{pseudocode}.
+\end{enumerate}
+
+\begin{parts}
+    \part[2] Define the sub-problem $g(i)$ as the indices of an $n$-choose-$i$ permutation of stations $P=(P_1,P_2,\cdots,P_i)\in\text{Per}(n,i)$ satisfying the following conditions:
+    \begin{gather*}
+        g(i)=\{P\in\text{Per}(n,i):\forall k\in[1,n], (P_1,P_2,\cdots, P_k)\in\mathop{\arg\max}_{Q\in C_k}\sum_{j=1}^{i}f_{Q_j}\}\\
+        C_k=\left\{Q\in\text{Per}(n,k):\forall l\in[1,k],f_0+\sum_{j=1}^{l-1}f_{Q_j}\ge p_{Q_l}\right\}\\
+    \end{gather*}
+    Then what is $g(1)$ and $g(2)$ in the example above?
+
+    \part[2] How do you find one of the solutions in $g(i+1)$ by using one of the solutions in $g(i)$?
+    And when does $g(i+1)=\emptyset$?
+
+    \part[2] Prove the correctness of solving $g(i+1)$ by calling $g(i)$ when $g(i+1)\ne\emptyset$.
+
+    \part[2] Define the problem $h(i)$ as the maximal distance that the vehicle can drive from city A:
+    \begin{gather*}
+        h(i)=f_0+\max_{Q\in E_i\cap C_i}\sum_{j=1}^{i}f_{Q_j}\\
+        E_i=\left\{Q\in\text{Per}(n,i):Q_1<Q_2<\cdots<Q_i\right\}\\
+        C_i=\left\{Q\in\text{Per}(n,i):\forall l\in[1,i],f_0+\sum_{j=1}^{l-1}f_{Q_j}\ge p_{Q_l}\right\}\\
+    \end{gather*}
+    Prove that $\forall P\in g(i), f_0+\sum_{j=1}^{i}f_{P_j}=h(i)$.
+
+    \part[3] What is the relationship between $h(i)$ and the minimum number of refueling?
+    And under what condition does the vehicle cannot reach the target?
+    Based on your analysis above, describe your algorithm in \textbf{pseudocode}.
+
+    \part[2] Analyse the time complexity based on your \textbf{pseudocode}.
+\end{parts}

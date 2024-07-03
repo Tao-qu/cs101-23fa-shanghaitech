@@ -1,0 +1,15 @@
+\titledquestion{Array Section}
+
+Given an upper bound \(M\) and a sequence of positive integers \(A=\langle a_1,\cdots,a_n\rangle\) where \(\forall i \in [1, n], a_i \leq M\), we want to divide it into several consecutive sections so that the sum of each section is less than or equal to the upper bound \(M\), and the number of sections is minimized.
+
+For example, if \(M=6\) and \(A=\langle 4,2,4,5,1\rangle\), the minimum number of sections is \(3\), and there are two ways to divide the sequence \(A\) into \(3\) sections: \(\langle 4\rangle,\langle 2,4\rangle,\langle 5,1\rangle\) and \(\langle 4,2\rangle,\langle 4\rangle,\langle 5,1\rangle\).
+
+Design a greedy algorithm to find the minimum number of sections in \(\Theta(n)\) time, and prove its correctness.
+
+\begin{parts}
+    \part[2] Describe your algorithm in \textbf{pseudocode}.
+    \part[2] Analyse the time complexity based on your \textbf{pseudocode}.
+    \part[1] How to define the sub-problem $g(i)$ in your algorithm?
+    \part[2] How do you solve $g(i)$ by calling $g(i-1)$ recursively?
+    \part[2] Prove the correctness of solving $g(i)$ by calling $g(i-1)$.
+\end{parts}

@@ -1,0 +1,25 @@
+\titledquestion{Array Section: Maximal Power}
+
+Given a sequence of positive integers $A=\langle a_1,\cdots,a_n\rangle$, we want to divide it into several consecutive sections so that the sum of power of these sections 
+is maximized.
+
+The power of section $\langle a_i,\cdots,a_j\rangle$ is defined as $aX_{i,j}^2+bX_{i,j}+c$, where
+\begin{itemize}
+    \item $a,b,c$ are given constants.
+    \item $X_{i,j}=\sum\limits_{k=i}^j a_k$ is the sum of values in the section.
+\end{itemize}
+
+Please design a \textbf{dynamic programming} algorithm that returns the maximal sum of power of the sections that you divided.
+
+For example, if \(a=-1,b=10,c=20\) and \(A=\langle 2,2,3,4\rangle\), the maximal sum of power is \(9\), and the way to divide the sequence is: \(\langle 2,2\rangle,\langle 3\rangle,\langle 4\rangle\).
+
+\begin{parts}
+\part[3] Define the subproblems for $i\in[0,n]$: $OPT(i)=$ the maximal sum of power of if you only consider dividing the first $i$ elements. Give your Bellman equation to solve the subproblems.
+
+\part[1] What is the answer to this question in terms of $OPT$?
+
+\part[3] What is the runtime complexity of your algorithm? (answer in $\Theta(\cdot)$)
+
+\textbf{Hint:} How will you compute $X_{j,i}$ in $\Theta(1)$ time? Please give your analysis of the preprocessing and computing complexity.
+
+\end{parts}

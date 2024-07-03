@@ -1,0 +1,93 @@
+\titledquestion{$\mathsf{Equivalent \text{-} Partition}$ is in $\NP \text{-} \Complete$}
+In this question, we will prove that $\mathsf{Equivalent \text{-} Partition}$ is in $\NP \text{-} \Complete$.
+
+$\mathsf{Equivalent \text{-} Partition}$: Given an array \(B=[b_1,b_2,...,b_n]\) of non-negative integers, determine whether there exists a subset $T \subseteq [n]$ such that $\sum_{i\in T} b_i = \sum_{j \in [n] \setminus T} b_j $ (i.e. determine whether there is a way to partition $B$ into two disjoint subsets such that the sum of the elements in each subset is equivalent).
+
+The $yes$-instances of $\mathsf{Equivalent \text{-} Partition}$ is:
+
+\begin{equation*}
+\mathsf{Equivalent \text{-} Partition}= \left\{\langle{b_1, \ldots, b_{n}\rangle}~\middle|~~~\begin{aligned}
+    &n\in \mathbb{Z}^+, b_1, \ldots, b_{n}\in \mathbb{N} \text{ and there exists a} \\ &\text{partition of the $b_i$'s to two parts whose sums}\\ &\text{are equivalent, i.e. }\exists{\:T\subseteq [n]}: \sum_{i\in T} b_i =  \sum_{j\in [n] \setminus T} b_j
+\end{aligned}\right\}
+\end{equation*}
+
+Based on the tutorial on page 2 and 3, our proof goes as follows:
+
+\begin{parts}
+    \part[2] Prove that $\mathsf{Equivalent \text{-} Partition}$ is in $\NP$. (Show your certificate and certifier.)
+
+    \begin{solution}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Replace `\vspace{1.5in}' with your answer.
+    \vspace{1.5in}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \end{solution}
+
+    \part[0] We choose $\mathsf{Subset \text{-} Sum}$ to reduce from. Recall that the $yes$-instance of $\mathsf{Subset \text{-} Sum}$ is:
+    \begin{equation*}
+        \mathsf{Subset \text{-} Sum} = \left\{\langle{a_1, a_2, \ldots, a_m, k\rangle}~\middle|~~~
+    \begin{aligned}
+        &m\in \mathbb{Z}^+, a_1, \ldots, a_m, k \in \mathbb{Z}^+ \text{ and there} \\ &\text{exists a subset of the $a_i$'s that sum up}\\ & \text{ to $k$, i.e. }\exists{\: S\subseteq [m]}: \sum_{i\in S} a_i = k.
+    \end{aligned}\right\}
+    \end{equation*}
+
+    \part Construct your {\color{red} polynomial-time many-one reduction} $f$ that maps instances of $\mathsf{Subset \text{-} Sum}$ to instances of $\mathsf{Equivalent \text{-} Partition}$.
+    \begin{subparts}
+        \subpart [0] Vixbob proposed a reduction as follows: 
+        
+        Let $n = m$ and $b_i = a_i$ for $\forall \: i \in [m]$. Finally set $k = \frac{1}{2} \sum_{i\in [m]} a_i$. In this way, $ \langle{a_1, a_2, \ldots, a_m, k\rangle}$ is a $yes$-instance of $\mathsf{Subset \text{-} Sum}$ if and only if $\langle{b_1, \ldots, b_{n}\rangle} = \langle{a_1, a_2, \ldots, a_m\rangle}$ is a $yes$-instance of $\mathsf{Equivalent \text{-} Partition}$.
+
+        However, this reduction is \textbf{wrong}. Why?
+        \begin{solution}
+        
+            Here $k$ is given (fixed) since it's part of the instance of the problem that we want to reduce from (i.e. it's part of the input of your reduction). Thus, you \textbf{can't} arbitrarily modify the value of $k$.
+        \end{solution}
+
+        \newpage
+        
+        \subpart [0] GKxx proposed another reduction as follows: 
+        
+        Define $X = \sum_{i\in [m]} a_i$ and let $n = m +2$. Then we define our reduction as:
+        $$\langle{b_1, \ldots, b_{n}\rangle} = f(\langle{a_1, a_2, \ldots, a_m, k\rangle}) \overset{\Delta}{=} \langle{a_1, a_2, \ldots, a_m, k, X - k\rangle}$$
+        In this way, we may deduce that $\langle{a_1, a_2, \ldots, a_m, k\rangle}$ is a $yes$-instance of $\mathsf{Subset \text{-} Sum}$ if and only if $\langle{b_1, \ldots, b_{n}\rangle} = \langle{a_1, a_2, \ldots, a_m, k, X - k\rangle}$ is a $yes$-instance of $\mathsf{Equivalent}$-$\mathsf{Partition}$ because a subset with sum $k$ can be paired with $X - k$ and the remaining subset with sum $X - k$ can be paired with $k$, resulting in an equivalent partition.
+
+        However, this reduction is \textbf{wrong} again. Why?
+        \begin{solution}
+        
+            This reduction is not a valid one since the sequence $\langle{a_1, a_2, \ldots, a_m, k, X - k\rangle}$ \textbf{always} has a trivial equivalent partition $\langle{a_1, a_2, \ldots, a_m\rangle}$ versus $\langle{k, X - k\rangle}$, which indicates that $f(\langle{a_1, a_2, \ldots, a_m, k\rangle})$ is \textbf{always} a $yes$-instance of $\mathsf{Equivalent}$-$\mathsf{Partition}$ regardless of whether $\langle{a_1, a_2, \ldots, a_m, k\rangle}$ is a $yes$-instance of $\mathsf{Subset \text{-} Sum}$ or not.
+        \end{solution}
+
+        \subpart[3] What's your \textbf{correct} {\color{red} polynomial-time many-one reduction} $f$ that maps instances of $\mathsf{Subset \text{-} Sum}$ to instances of $\mathsf{Equivalent \text{-} Partition}$?
+
+        Hint: GKxx's reduction is really close to a correct one. Maybe you can modify it a little bit to make it correct?
+        \begin{solution}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        % Replace `\vspace{4.5in}' with your answer.
+        \vspace{4.5in}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \end{solution}
+    \end{subparts}
+
+    \newpage
+
+    \part Prove the correctness of your reduction by showing:
+    \begin{subparts}
+        \subpart[1] $x$ is a $yes$-instance of $\mathsf{Subset \text{-} Sum}$ $\Rightarrow$ $f(x)$ is a $yes$-instance of $\mathsf{Equivalent \text{-} Partition}$.
+        
+        \begin{solution}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        % Replace `\vspace{2.5in}' with your answer.
+        \vspace{2.5in}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \end{solution}
+        
+        \subpart[2] $x$ is a $yes$-instance of $\mathsf{Subset \text{-} Sum}$ $\Leftarrow$ $f(x)$ is a $yes$-instance of $\mathsf{Equivalent \text{-} Partition}$.
+        
+        \begin{solution}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        % Replace `\vspace{4.5in}' with your answer.
+        \vspace{4.5in}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \end{solution}
+    \end{subparts}
+\end{parts}

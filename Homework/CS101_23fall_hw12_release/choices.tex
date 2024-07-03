@@ -1,0 +1,111 @@
+\titledquestion{Multiple / Single Choice(s)}
+
+This part consists of multiple choices questions ((a)-(d)) and single choice questions ((e)-(g)).
+
+For each multiple choices question ((a)-(d)), there may be \textbf{one or more} correct choice(s). Select all the correct answer(s). For each such question, you will get 0 points if you select \textbf{any} wrong choice, but you will get 1 point if you select a non-empty subset of the correct choices.
+
+For each single choice question ((e)-(g)), there is \textbf{exactly one} correct choice. 
+
+\textbf{Write your answers in the following table.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Note: The `LaTeX' way to answer a multiple-choices question is to replace `\choice'
+% with `\choice', as what you did in the previous questions. However, there are 
+% still many students who would like to handwrite their homework. To make TA's work 
+% easier, you have to fill your selected choices in the table below, no matter whether 
+% you use LaTeX or not.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{1cm}|p{1cm}|p{1cm}|}
+        \hline
+        2(a) & 2(b) & 2(c) & 2(d) & 2(e) & 2(f) & 2(g) \\
+        \hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        % YOUR ANSWER HERE.
+         &  &  &  &  &  & \\
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{parts}
+    \part[3] A problem in $\NP$ is in $\NP \text{-} \Complete$ if:
+    \begin{choices}
+        \choice It can be reduced to any other $\NP$ problem in polynomial time.
+        \choice Any other $\NP$ problem can be reduced to it in polynomial time.
+        \choice It can be reduced to another $\NP \text{-} \Complete$ problem in polynomial time.
+        \choice There exists another $\NP \text{-} \Complete$ problem which can be reduced to it in polynomial time.
+    \end{choices}
+    
+    \part[3] Given two decision problems $A$ and $B$ such that there exists a polynomial-time many-one reduction from $A$ to $B$. Which of the following statements must be true?
+    \begin{choices}
+        \choice $A\in \P \implies B\in \P$
+        \choice $A\in \NP \text{-} \Complete \implies B\in \NP \text{-} \Complete$.
+        \choice $B\in \P\implies A\in \P$.
+        \choice $B\in \NP \text{-} \Complete \implies A\in \NP \text{-} \Complete$.
+    \end{choices}
+
+    \part[3] Which of the following statements are true?
+    \begin{choices}
+        \choice The ``\textbf{N}'' in $\NP$ stands for ``nondeterministic'', instead of ``not''.
+        \choice According to Cook-Levin Theorem, any problem in $\NP$ can be reduced to \\$\mathsf{Circuit \text{-} \SAT}$ in polynomial time.
+        \choice $\mathsf{k} \text{-} \SAT \in \NP \text{-} \Complete$ for any positive integer $k \geq 2$.
+        \choice Consider the optimization version of $\mathsf{Knapsack}$ problem with $n \in \mathbb{Z}^+$ items and $W \in \mathbb{Z}^+$ where the weight and value of each item is $w_i \in \mathbb{Z}^+$ and $v_i \in \mathbb{R}^+$ respectively. Since there is a dynamic programming algorithm for this problem that runs in $O(nW)$ time, we may deduce that we can solve this problem in polynomial time.
+    \end{choices}
+
+    \part[3] Which of the following statements are true?
+    \begin{choices}
+        \choice If you find a polynomial time algorithm for a problem in NP, then you have proved $\P = \NP$.
+        \choice If you prove that $\mathsf{4 \text{-} Color}$ can be reduced to $\mathsf{3 \text{-} Color}$ in polynomial time, then you've proved $\P = \NP$.
+        \choice $\P \neq \NP$ if and only if $\P \cap \NP \text{-} \Complete = \emptyset$.
+        \choice $\P = \NP$ if and only if $\NP = \NP \text{-} \Complete$.
+    \end{choices}
+
+    Hint: In fact, any two problems in $\P$ reduces to each other in polynomial time. Intuitively, you may interpret this as the fact that all the questions in $\P$ share the same ``hardness''. A more formal explanation goes as follows:
+
+    For simplicity, we only consider those \textbf{decision} problem in $\P$ here. Let $A$ and $B$ be any two decision problems in $\P$ and we want to show that $A$ can be reduced to $B$ in polynomial time. Given an instance $x$ of $A$, our reduction goes as follows:
+    \begin{enumerate}
+        \item Prepare two copies of data containing a $yes$-instance of $B$ and a $no$-instance of $B$ respectively, which can be done in polynomial time since $B \in \P.$
+        \item Determine whether $x$ is a $yes$-instance of $A$ or not, which can be done in polynomial time since $A \in \P$.
+        \item If the answer is $yes$, then we return the copy containing a $yes$-instance of $B$. Otherwise, we return the copy containing a $no$-instance of $B$.
+    \end{enumerate}
+    More specifically, let's see how this idea works in the case where:
+    \begin{enumerate}
+        \item $A$ is ``Given a undirected weighted graph $G = (V, E, \langle \, w_e \,|\, e \in E \, \rangle)$ and $c \in \mathbb{R}$, does the minimum spanning tree of it have cost no more than $c$?''
+        \item $B$ is ``Given a undirected weighted graph $G' = (V', E', \langle \, w'_e \,|\, e \in E' \, \rangle)$ with no negative-cost cycles and $c' \in \mathbb{R}$, does the shortest path between any pairs of vertices of $G'$ have cost no more than $c'$?''
+    \end{enumerate}
+
+    Given a undirected weighted graph $G$ (an instance of $A$):
+    \begin{enumerate}
+        \item Prepare two graphs $G_1$ and $G_2$ where $G_1$ satisfies the shortest path between any pairs of vertices of $G_1$ has cost no more than $c'$ and $G_2$ satisfies there exists a pair of vertices of $G_2$ such that the shortest path between them has cost more than $c'$.
+        \item Find the minimum spanning tree of $G$ with Kruskal's algorithm and compare the answer with $c$.
+        \item If the answer is no more than $c$, then we return $G_1$. Otherwise, we return $G_2$.
+    \end{enumerate}
+
+    \part[2] The statement ``$\mathsf{Minimum \text{-} Spanning \text{-} Tree}$ is not in $\NP \text{-} \Complete$.'' is \fillin[]?
+    \begin{choices}
+        \choice True regardless of whether $\P$ equals to $\NP$ or not.
+        \choice False regardless of whether $\P$ equals to $\NP$ or not.
+        \choice True if and only if $\P = \NP$.
+        \choice True if and only if $\P \neq \NP$.
+    \end{choices}
+
+    \part[2] The statement ``If problem $B$ is in $\NP$, then for any problem $A \in \P$, $A$ can be reduced to $B$ in polynomial time.'' is \fillin[]?
+    \begin{choices}
+        \choice True regardless of whether $\P$ equals to $\NP$ or not.
+        \choice False regardless of whether $\P$ equals to $\NP$ or not.
+        \choice True if and only if $\P = \NP$.
+        \choice True if and only if $\P \neq \NP$.
+    \end{choices}
+
+    \part[2] The statement ``There are problems in $\NP$ that cannot be solved in exponential time.'' is \fillin[]?
+    \begin{choices}
+        \choice True regardless of whether $\P$ equals to $\NP$ or not.
+        \choice False regardless of whether $\P$ equals to $\NP$ or not.
+        \choice True if and only if $\P = \NP$.
+        \choice True if and only if $\P \neq \NP$.
+    \end{choices}
+    
+\end{parts}

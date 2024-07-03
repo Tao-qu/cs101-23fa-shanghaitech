@@ -1,0 +1,70 @@
+\titledquestion{Multiple Choices}
+
+Each question has \textbf{one or more} correct answer(s). Select all the correct answer(s). For each question, you will get 0 points if you select one or more wrong answers, but you will get 1 point if you select a non-empty subset of the correct answers.
+
+Write your answers in the following table.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Note: The `LaTeX' way to answer a multiple-choices question is to replace `\choice'
+% with `\CorrectChoice', as what you did in the first question. However, there are still
+% many students who would like to handwrite their homework. To make TA's work easier,
+% you have to fill your selected choices in the table below, no matter whether you use
+% LaTeX or not.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|}
+        \hline
+        (a) & (b) & (c) \\
+        \hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        % YOUR ANSWER HERE.
+        &     &     \\
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \hline
+    \end{tabular}\label{tab:multiple}
+\end{table}
+
+\begin{parts}
+    \part[2] Which of the following statements about topological sort is/are true?
+
+    \begin{choices}
+        \choice The implementation of topological sort requires $O(\abs{V})$ extra space.
+        \choice Any sub-graph of a DAG has a topological sorting.
+        \choice A DAG can have more than one topological sorting.
+        \choice Since we have to scan all vertices to find those with zero in-degree in each iteration, the run time of topological sort is $\Omega(\abs{V}^{2})$.
+    \end{choices}
+
+    \part[2] Which of the following statements about topological sort and critical path is/are true?
+
+    \begin{choices}
+        \choice Create a graph from a rooted tree by assigning arbitrary directions to the edges.
+        The graph is guaranteed to have a valid topological order.
+        \choice A critical path in a DAG is a path from the source to the sink with the minimum total weights.
+        \choice A DAG with all different weighted edges has one unique critical path.
+        \choice Let $c(G)$ be the run time of finding a critical path and $t(G)$ be the run time of finding an arbitrary topological sort in a DAG $G$, then $c(G)=\Theta(t(G))$.
+    \end{choices}
+
+    \part[2] For the coin changing problem, which of the following statements is/are true?
+    Denote
+    \begin{itemize}
+        \item $1=c_1<c_2<\dots<c_k$: the denominations of coins;
+        \item $g^*(n)$: the optimal solution, i.e., the minimum number of coins needed to make change for $n$;
+        \item $g(n)$: the greedy solution, written as
+        \[
+        g(n)=\begin{cases}
+        0,&n=0\\
+        1+g(n-\max\limits_{c_i\le n}c_i),&n\ge 1
+        \end{cases}
+        \]
+    \end{itemize}
+
+    \begin{choices}
+        \choice If $\forall i\in[2,n], \dfrac{c_i}{c_{i-1}}$ is an integer, then $\forall n,g^*(n)=g(n)$.
+        \choice If $\forall i\in[3,n], c_i=c_{i-1}+c_{i-2}$, then $\forall n,g^*(n)=g(n)$.
+        \choice If $\forall i, 2c_i\le c_{i+1}$, then $\forall n,g^*(n)=g(n)$.
+        \choice If $\exists i, 2c_i>c_{i+1}$, then $\exists n,g^*(n)\ne g(n)$.
+    \end{choices}
+
+\end{parts}

@@ -1,0 +1,98 @@
+\documentclass[11pt, addpoints, answers]{exam}
+
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{listings}
+\lstset{
+  columns = fixed,
+  basewidth = {0.5em},
+  breaklines = true,
+  backgroundcolor = \color{white},
+  keywordstyle = \color[RGB]{40, 40, 255},
+  numberstyle = \footnotesize\color{darkgray},
+  commentstyle = \ttfamily\color{violet},
+  basicstyle = \ttfamily,
+  stringstyle = \ttfamily\color[RGB]{128, 0, 0},
+  showstringspaces = false,
+  language = {[11]C++},
+  escapechar = \@
+}
+\lstnewenvironment{cpp}[1][]{\lstset{language = {[11]C++}, #1}}{}
+% headers, footers, titles
+\newcommand{\CourseName}{CS101 Algorithms and Data Structures}
+\newcommand{\HomeworkNO}{Homework 11}
+\newcommand{\DueDate}{Due date: 23:59, January 7th, 2024}
+
+\pagestyle{headandfoot}
+\runningheadrule{}
+\runningheader{\CourseName}{\HomeworkNO}{\DueDate}
+\runningfooter{}{\thepage}{}
+
+\title{
+    \CourseName\\
+    Fall 2023\\
+    \HomeworkNO\\
+}
+\author{}
+\date{\DueDate}
+
+% formats of questions, choices, points, etc.
+\qformat{\bf\thequestion. (\totalpoints\ points) \thequestiontitle\hfill}
+\pointname{'}
+\CorrectChoiceEmphasis{\bf\color{blue}}
+\SolutionEmphasis{\color{blue}}
+
+% We frequently use this font.
+\newcommand{\ttt}{\texttt}
+\newcommand{\bluett}[1]{\textcolor{blue}{\ttt{#1}}}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+    \item Please write your solutions in English.
+    \item Submit your solutions to Gradescope.
+    \item If you want to submit a handwritten version, scan it clearly.
+    \item When submitting, match your solutions to the problems correctly.
+    \item No late submission will be accepted.
+    \item Violations to any of the above may result in zero credits.
+    \item You are recommended to finish the algorithm design part of this homework with \LaTeX.
+\end{enumerate}
+
+\newpage
+
+\begin{questions}
+
+    \newpage
+    
+    \include{example}
+    
+    \newpage
+    
+    \include{multipleChoices}
+    
+    \newpage
+
+    \include{Floyd_Warshall_Algorithm}
+
+    \newpage
+    
+    \include{array_section}
+    
+    \newpage
+    
+    \include{coin}
+    
+    \newpage
+    
+    \include{minimum_refuel}
+    
+\end{questions}
+
+\end{document}

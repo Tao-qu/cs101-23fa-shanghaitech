@@ -1,0 +1,66 @@
+\titledquestion{Multiple Choices}
+
+Each question has \textbf{one or more} correct answer(s). Select all the correct answer(s). For each question, you will get 0 points if you select one or more wrong answers, but you will get 1 point if you select a non-empty subset of the correct answers.
+
+Write your answers in the following table.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Note: The `LaTeX' way to answer a multiple-choices question is to replace `\choice'
+% with `\CorrectChoice', as what you did in the previous questions. However, there are 
+% still many students who would like to handwrite their homework. To make TA's work 
+% easier, you have to fill your selected choices in the table below, no matter whether 
+% you use LaTeX or not.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		(a) & (b) & (c) & (d) \\
+		\hline
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		% YOUR ANSWER HERE.
+	     &    &    &   \\
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{parts}
+\part[2] Which of the followings statements about Floyd-Warshall algorithm is/are true?
+
+\begin{choices}
+    \choice The Floyd-Warshall algorithm has a time complexity of $\Theta(|V|^3)$.
+    \choice For two graphs $G_1=(V_1,E_1),G_2=(V_2,E_2)$ such that $|V_1|=|V_2|$ but $|E_1|>|E_2|$, the Floyd-Warshall algorithm costs more time on $G_1$ than $G_2$.
+    \choice Floyd-Warshall algorithm can't solve single-source shortest path problem, while Dijkstra can.
+    \choice We can modify Floyd-Warshall algorithm to detect whether two vertices are strongly connected in a directed graph.
+\end{choices}
+
+\part[2] (\textbf{Single Choice}) Consider a weighted directed graph with $n$ vertices $v_1, v_2, \ldots, v_n$, where $n$ is even. Let $d_{i,j}^{(k)}$ be the shortest distance of $v_i,v_j$ only allowing intermediate visits to $v_1,\ldots,v_k$ in the Floyd-Warshall algorithm. After running at least $x$ iterations of the outermost loop $k$, it is ensured that the shortest path between $v_{n/2}$ and $v_n$ is found in the matrix $d^{(x)}$ (in other words, $d_{n/2,n}^{(x)}=d_{n/2,n}^{(n)}$). Then $x=$
+
+\begin{choices}
+    \choice $\frac{n}{2}-1$
+    \choice $\frac{n}{2}$
+    \choice $n-1$
+    \choice $n$
+\end{choices}
+
+\part[2] Which of the following statements about problems related to dynamic programming (DP) is/are true?
+
+\begin{choices}
+    \choice The greedy algorithm that solves the interval scheduling problem fails on the weighted interval scheduling problem.
+    \choice If there are $n$ houses and $m$ colors, the house coloring problem can be solved in $\Theta(nm)$ time complexity.
+    \choice Given an $n\times n$ matrix, maximum rectangle problem can be solved by calling Kadane’s algorithm (solving maximum subarray problem) $\Theta(n)$ times.
+    \choice The segmented least squares algorithm can be optimized to $\Theta(n^2)$ run time if we precompute the SSE $e_{ij}$ for all $i\le j$ in $\Theta(n^2)$ time.
+\end{choices}
+
+\part[2] Which of the following statements about different solutions of the weighted interval scheduling is/are true? There are $n$ jobs. Define $p(j)=$ largest index $i<j$ such that job $i$ is compatible with $j$, and define $OPT(j)$ = max weight of any subset of mutually compatible jobs for subproblem consisting only of jobs $1, 2, \ldots, j$.
+
+\begin{choices}
+    \choice If we use brute-force algorithm to compute $OPT(n)$, then the worst-case time complexity is $\Theta\left(\left(\dfrac{1+\sqrt{5}}{2}\right)^n\right)$.
+    \choice If we use top-down dynamic programming (memorization) to compute $OPT(n)$, then we consume additional $O(n)$ function call stack space compared to bottom-up dynamic programming.
+    \choice No matter whether we use top-down dynamic programming (memorization) or bottom-up dynamic programming to compute $OPT(n)$, the time complexity is $\Theta(n)$, excluding the time for sorting and computing $p(j)$.
+    \choice After $OPT(j)$ for all $j\in[0,n]$ are computed, we can find one possible set of mutually compatible jobs that maximize the sum of weights in $O(n)$ time.
+\end{choices}
+
+\end{parts}
