@@ -1,0 +1,104 @@
+\titledquestion{SmallSum}
+Given an array \(\langle a_1,\cdots,a_n\rangle\), Let
+$$
+    f_i=\sum_{j=1}^{i-1} a_j\mathbb{I}(a_j<a_i)
+$$
+Then, we define SmallSum:
+$$
+    SmallSum = \sum_{i = 1}^{n} f_i
+$$
+
+For example, for array \(\langle1,3,4,2,5\rangle\):
+\begin{itemize}
+    \item for element $1$: $f_1=0$
+    \item for element $3$: $f_2=1$
+    \item for element $4$: $f_3=1+3=4$
+    \item for element $2$: $f_4=1$
+    \item for element $5$: $f_5=1+3+4+2=10$
+\end{itemize}
+So the SmallSum is $0+1+4+1+10=16$.
+
+Most of you can come up with the $\Theta(n^2)$ solution, but let's think it in another way.  
+\begin{parts}
+    \part[1] For the example above, for an element $a_k$, how many times does it add to the sum? 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% On the correct choice, replace `\choice' with `\CorrectChoice'.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{choices}
+        \choice $\sum_{i=1}^{k} \mathbb{I}(a_k<a_i)$  
+        \choice $\sum_{i=1}^{k} \mathbb{I}(a_k \geq a_i)$  
+        \choice $\sum_{i=k+1}^{n} \mathbb{I}(a_k<a_i)$
+        \choice $\sum_{i=k+1}^{n} \mathbb{I}(a_k \geq a_i)$  
+    \end{choices}
+
+
+\part[8] Fill in the blanks in the code snippet below.
+  (Hint: relate this algorithm to counting inversions.) \\ 
+Consider alternating the Enhance Merge Sort algorithm to solve the problem. \\
+
+The solution has 2 functions:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		% Replace the underline with your answer.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cpp}
+int split(int arr[], int left, int right){
+    if(left == right) return 0;
+    int mid = _______________;
+    int result = split(arr, left, mid) + split(arr, mid + 1, right);
+    return result + merge(arr, left, mid, right);
+}
+\end{cpp}
+
+The following function calculates the contribution of \(\langle a_{left},\cdots,a_{mid}\rangle\) to the sum.
+
+\begin{cpp}
+int merge(int arr[], int left, int mid, int right){
+    int length = right - left + 1;
+    int* temp = new int[length];
+    int i = 0;
+    int p1 = left;
+    int p2 = mid + 1;
+    int result = 0;
+    while(p1 <= mid && p2 <= right){
+        if(arr[p1]<arr[p2]){
+            // Add arr[p1]'s contribution to final answer.
+            result += __________________;
+            // move the elements of arr into temp.
+            // (for the following three lines, you may not fill all of them.)
+            __________________;
+            __________________;
+            __________________;
+        }
+        else{
+            // move the elements of arr into temp.
+            // (for the following three lines, you may not fill all of them.)
+            __________________;
+            __________________;
+            __________________;
+        }
+    }
+    while(_______){
+        temp[i++] = arr[p1++];
+    }
+    while(_______)){
+        temp[i++] = arr[p2++];
+    }
+    for (int j = 0; j < length ; j++){
+        ______________;
+    }
+    delete[] temp;
+    return result;
+}
+\end{cpp}
+
+
+  \part[3] What's the time complexity of our algorithm? Please answer in the form of \(\Theta(\cdot)\) and prove your answer.
+  \begin{solution}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		% Replace the `vspace{?cm}' with your answer.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \vspace{3cm}
+  \end{solution}
+\end{parts}

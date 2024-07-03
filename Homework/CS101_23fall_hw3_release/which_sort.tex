@@ -1,0 +1,55 @@
+\titledquestion{Which Sort?}
+
+Given a sequence
+\[A=\langle 5,4,8,7,6,2,1,3,7,9\rangle,\]
+we have performed different sorting algorithms and printed the intermediate results. Note that the steps below are \textbf{not} necessarily consecutive steps in the algorithm, but they are guaranteed to be in the correct order.
+
+For each group of steps, guess (\(\surd\)) what the algorithm is. The algorithm might be one among the following choices:
+\begin{itemize}
+  \item Insertion-sort, implemented in the way that avoids swapping elements
+  \item Flagged Bubble-sort
+  \item Merge-sort
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% On the correct choice, replace `\choice' with `\CorrectChoice'.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{parts}
+  \part[2]
+  \[\begin{aligned}
+    \langle 4,5,7,8,6,2,1,3,7,9\rangle,\\
+    \langle 2,4,5,6,7,8,1,3,7,9\rangle,\\
+    \langle 1,2,3,4,5,6,7,8,7,9\rangle.\\
+  \end{aligned}\]
+  \begin{oneparcheckboxes}
+    \choice Insertion-sort
+    \choice Bubble-sort
+    \choice Merge-sort
+  \end{oneparcheckboxes}
+  
+  \part[2]
+  \[\begin{aligned}
+    \langle 4,5,6,7,8,2,1,3,7,9\rangle,\\
+    \langle 4,5,6,7,8,1,2,3,7,9\rangle,\\
+    \langle 1,2,3,4,5,6,7,7,8,9\rangle.\\
+  \end{aligned}\]
+
+  \begin{oneparcheckboxes}
+    \choice Insertion-sort
+    \choice Bubble-sort
+    \choice Merge-sort
+  \end{oneparcheckboxes}
+
+  \part[2]
+  \[\begin{aligned}
+    \langle 4,5,7,6,8,2,1,3,7,9\rangle,\\
+    \langle 4,5,7,6,2,1,3,7,8,9\rangle,\\
+    \langle 4,5,6,2,1,3,7,7,8,9\rangle.\\
+  \end{aligned}\]
+  \begin{oneparcheckboxes}
+    \choice Insertion-sort
+    \choice Bubble-sort
+    \choice Merge-sort
+  \end{oneparcheckboxes}
+\end{parts}

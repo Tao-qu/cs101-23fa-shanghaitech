@@ -1,0 +1,67 @@
+\titledquestion{Multiple Choices}
+
+Each question has \textbf{one or more} correct answer(s). Select all the correct answer(s). For each question, you will get 0 points if you select one or more wrong answers, but you will get 1 point if you select a non-empty subset of the correct answers.
+
+Write your answers in the following table.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Note: The `LaTeX' way to answer a multiple-choices question is to replace `\choice'
+% with `\CorrectChoice', as what you did in the first question. However, there are still
+% many students who would like to handwrite their homework. To make TA's work easier,
+% you have to fill your selected choices in the table below, no matter whether you use 
+% LaTeX or not.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline 
+		(a) & (b) & (c) & (d) \\
+		\hline
+  		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		% YOUR ANSWER HERE.
+		&  &  &  \\
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\hline
+	\end{tabular} 
+\end{table}
+
+\begin{parts}
+	\part[2] Which of the following operations on a \textbf{Linked List} take constant time?
+
+	\begin{choices}
+		\choice Given a pointer $h$ which points  to the head node of a linked list, we want to erase the head node.
+		\choice Given a pointer $h$ which points to the head node of a linked list, we want to gain access to the last element of the linked list.
+		\choice Given a pointer $p$ which points to a node in a linked list, we want to gain access the previous node of $p$.
+		\choice Given a pointer $p$ which points to a node in a linked list, we want to insert an element after $p$.
+	\end{choices}
+
+        \part[2] Which of the following statements about arrays and linked-lists are true?
+
+        \begin{choices}
+            \choice Inserting an element into the middle of an array takes constant time.
+            \choice A doubly linked list consumes more memory than a (singly) linked list of the same length.
+            \choice Given a pointer to some node in a doubly linked list, we are able to gain access to every node of it.
+            \choice Given a pointer to any node in a linked list, we are able to gain access to the last node. 
+        \end{choices}
+
+        \part[2] Please evaluate the following reverse-Polish expressions. Which of them are legal reverse-Polish expressions and gives a result greater than 0?
+
+        \begin{choices}
+            \choice \ttt{2 3 2 * + 1 /}
+            \choice \ttt{1 2 4 - - 3 *}
+            \choice \ttt{1 * 2 - 1 + 5}
+            \choice \ttt{2 4 3 1 + * -}
+        \end{choices}
+
+        \part[2] Assume we implement a queue with a circular array indexed from $0$ to $n-1$. Now the \ttt{front} pointer is at index $a$, and the \ttt{back} pointer is at index $b$. Which of the following best describes the number of the elements in the queue?
+
+        \begin{choices}
+            \choice $b-a+1$
+            \choice $|b-a+1|$
+            \choice $b-a+1+n$
+            \choice $(b-a+1+n) \mod n$
+        \end{choices}
+
+
+\end{parts}

@@ -1,0 +1,74 @@
+\titledquestion{Car Park Scheduling}
+
+In a car park with a parking scheduling area, cars arrive at the entrance in a certain order, and each car has a unique identifier $c_i$.
+
+Cars can choose to drive out directly or enter the parking scheduling area to wait. Due to the scheduling nature of the area, cars must follow the Last In First Out (LIFO) rule, meaning the car that entered the scheduling area last must be the first to exit. 
+
+\textbf{Now you need to solve the following question.}
+
+Given a sequence of cars entering the park, we need to judge if a sequence of cars exiting is feasible or not.
+
+\textbf{Example} 
+
+Suppose the sequence of cars entering is $ \{c_1, c_2, c_3\} $, all possible exit sequences include:
+
+\begin{enumerate}
+    \item $ \{c_1, c_2, c_3\} $: All cars drive out in the order they arrived.
+    
+    \item $ \{c_1, c_3, c_2 \} $: Car $ c_1 $ enters and drives out directly. Car $ c_2 $ enters the scheduling area to wait. Car $ c_3 $ enters and drives out, followed by Car $ c_2 $ exiting from the scheduling area.
+
+    \item $ \{c_2, c_3, c_1\} $: Car $ c_1 $ enters the scheduling area to wait. Car $ c_2 $ enters and drives out directly. Car $ c_3 $ enters and drives out, followed by Car $ c_1 $ exiting from the scheduling area.
+
+    \item $ \{c_2, c_1, c_3\} $: Car $ c_1 $ enters the scheduling area to wait. Car $ c_2 $ enters and drives out directly. Car $ c_1 $ leaves from the scheduling area. Car $ c_3 $ enters and drives out.
+    
+    \item $ \{ c_3, c_2, c_1 \} $: Cars $ c_1 $ and $ c_2 $ both enter the scheduling area to wait. Car $ c_3 $ enters and drives out directly. Then Car $ c_2 $ exits the scheduling area, followed by Car $ c_1 $.
+\end{enumerate}
+
+It can be proved that $\{c_3, c_1, c_2\}$ is not a feasible exit sequence.
+\linespread{1}
+
+\begin{parts}
+        \part[2] \label{part:5a} Which data structure is the operation of this scheduling area most similar to?
+
+        \begin{oneparcheckboxes}
+            \choice Array
+		\choice Linked list
+		\choice Stack
+		\choice Queue
+	\end{oneparcheckboxes}
+        
+	\part[6] \label{part:5b} According to question (\ref{part:5a}), we could use this data structure to simulate the enter-exit progress. Please complete the function. Hint: you can access the front element of a queue or the top element of a stack using the member function \ttt{front()} or \ttt{top()}. The class \ttt{car} has \ttt{==} operator.
+        \linespread{1}
+	\begin{cpp}
+bool is_feasible(const std::deque<car>& enter_seq, std::queue<car> exit_seq) {
+     /* (1) */ x;   // Choose your data structure 
+     for(auto& enter_car : enter_seq) {
+        /* (2) */
+        while( !x.empty() && /* (3) */ ) {
+            /* (4) */
+            /* (5) */
+        }
+     }
+     if (/* (6) */) {
+        return true;  // Given enter_seq, the exit_seq is feasible.
+     }
+     return false; // Given enter_seq, the exit_seq is not feasible.
+}
+	\end{cpp}
+        \begin{solution}
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		% Replace the `vspace{6cm}' with your answer.
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\vspace{6cm}
+        \end{solution}
+	
+	\part[2] \textbf{Try your algorithm!}\par
+	Now you can use the algorithm you implemented in question (\ref{part:5b}) to check whether these sequences are feasible exit sequences. The enter sequence is $ \{c_1, c_2, c_3, c_4, c_5, c_6\} $. 
+	\begin{checkboxes}
+		\choice $ \{c_3, c_1, c_5, c_6, c_2, c_4\} $
+		\choice $ \{c_3, c_5, c_4, c_2, c_6, c_1\} $
+		\choice $ \{c_2, c_6, c_3, c_4, c_1, c_5\} $
+        \choice $ \{c_4, c_5, c_6, c_1, c_3, c_2\} $
+        \choice $ \{c_1, c_4, c_5, c_3, c_2, c_6\} $
+	\end{checkboxes}
+\end{parts}

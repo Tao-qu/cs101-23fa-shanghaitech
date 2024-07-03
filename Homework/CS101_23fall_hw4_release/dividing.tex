@@ -1,0 +1,65 @@
+\titledquestion{Dividing with Creativity}
+
+In this question, you are required analyze the run-time of algorithms with different dividing methods mentioned below. For each subpart except the third one, your answer should include:
+\begin{enumerate}
+    \item Describing the recurrence relation of the run-time $T(n)$. (Worth 1 point in 4)
+    \item Finding the asymptotic order of the growth of $T(n)$ i.e. find a function $g$ such that $T(n) = O(g(n))$. Make sure your upper bound for $T(n)$ is tight enough. (Worth 1 point in 4)
+    \item Show your \textbf{reasoning} for the upper bound of $T(n)$ or your process of obtaining the upper bound starting from the recurrence relation step by step. (Worth 2 points in 4)
+\end{enumerate}
+
+In each subpart, you may ignore any issue arising from whether a number is an integer as well as assuming \(T(0) = 0\) and \(T(1) = 1\). You can make use of the Master Theorem, Recursion Tree or other reasonable approaches to solve the following recurrence relations.
+
+\begin{parts}
+    \part[4] An algorithm $\mathcal{A}_1$ takes $\Theta(n)$ time to partition the original problem into 2 sub-problems, one of size $\lambda n$ and the other of size $(1-\lambda)n$ (here $\lambda \in \left(0, \frac{1}{2}\right)$), then recursively runs itself on both of the 2 sub-problems and finally takes $\Theta(n)$ time to merge the answers of the 2 sub-problems.
+    
+    \begin{solution}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Replace `\vspace{5in}' with your answer.
+    \vspace{5in}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+    \end{solution}
+
+    \newpage
+    
+    \part[4] An algorithm $\mathcal{A}_2$ takes $\Theta(n)$ time to partition the original problem into 2 sub-problems, one of size $k$ and the other of size $(n - k)$ (here $k \in \mathbb{Z}^+$ is a constant), then recursively runs itself on both of the 2 sub-problems and finally takes $\Theta(n)$ time to merge the answers of the 2 sub-problems.
+    
+    \begin{solution}\\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Replace `\vspace{1.5in}' with your answer.
+    \vspace{1.5in}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+    \end{solution}
+
+    \part{} Solve the recurrence relation $T(n) = T(\alpha n) + T(\beta n) + \Theta(n)$ where $\alpha + \beta < 1$ and $\alpha \geq \beta$.
+    \begin{subparts}
+        \subpart[2] Fill in the \textbf{four} blanks in the mathematical derivation snippet below.
+        \begin{align*}
+            T(n) &= T(\alpha n) + T(\beta n) + \Theta(n) \\
+                 &= (T(\alpha ^2 n) + T(\alpha \beta n) + \Theta(\alpha n)) +
+                    (T(\alpha \beta n) + T(\beta ^2 n) + \Theta(\beta n)) + \Theta(n) \\
+                 &= (T(\alpha ^2 n) + 2T(\alpha \beta n) + T(\beta ^2 n)) + \Theta(n) (1 + (\alpha + \beta)) \\
+                 &= \dots \\
+                 &= \sum _ {i=0} ^k \_{\_ \_ \_ \_ \_} T(\_{\_ \_ \_ \_ \_}) + \Theta(n) \sum _ {j = 0} ^{\_{\_ \_ \_}} \_{\_ \_ \_ \_ \_}
+        \end{align*}
+
+        \subpart[3] Based on the previous part, complete this question.
+        \begin{solution}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        % Replace `\vspace{3in}' with your answer.
+        \vspace{3in}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \end{solution}
+    \end{subparts}
+
+    \newpage
+    
+    \part[4] An algorithm $\mathcal{A}_3$ takes $\Theta(\log n)$ time to convert the original problem into 2 sub-problems, each one of size $\sqrt{n}$, then recursively runs itself on both of the 2 sub-problems and finally takes $\Theta(\log n)$ time to merge the answers of the 2 sub-problems.
+    
+    Hint: W.L.O.G., you may assume $n = 2^m$ for $m \in \mathbb{Z}$.
+    \begin{solution}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Replace `\vspace{3in}' with your answer.
+    \vspace{3in}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+    \end{solution}
+\end{parts}

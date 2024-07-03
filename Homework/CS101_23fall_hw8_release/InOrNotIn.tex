@@ -1,0 +1,49 @@
+\titledquestion{In Or Not In?}[6]
+
+In this problem, we want you to run Kruskal's algorithm on the given graph. For each edge, indicate either the order it was added to the Minimum Spanning Tree (MST) or if it's not in the MST. For instance, if edge $(u,v)$ was the $3$rd edge added to the MST, mark ``In MST'' and write $3$ in the corresponding order box. If an edge is not in the MST, mark ``Not In MST'' and leave the order box blank.
+
+
+\begin{tikzpicture}[shorten >=1pt,node distance=2cm,auto] 
+   \node[circle,draw] (F)   {F}; 
+   \node[circle,draw] (D) [above right=3cm and 3cm of F] {D}; 
+   \node[circle,draw] (A) [below right=3cm and 3cm of F] {A}; 
+   \node[circle,draw] (E) [right=6cm of F] {E};
+   \node[circle,draw] (C) [above right=3cm and 3cm of E] {C}; 
+   \node[circle,draw] (B) [below right=3cm and 3cm of E] {B};
+   \node[circle,draw] (G) [right=6cm of E] {G}; 
+    \path[-] 
+    (D) edge node {1} (F)
+    (D) edge node {27} (A)
+    (F) edge node {78} (A)
+    (A) edge node {48} (E)
+    (D) edge node {96} (E)
+    (A) edge node {30} (B)
+    (B) edge node {52} (E)
+    (B) edge [bend right=45] node {11} (D)
+    (D) edge node {5} (C)
+    (C) edge node {22} (B)
+    (C) edge node {49} (G)
+    (B) edge node {24} (G);
+\end{tikzpicture}
+
+You should write your answer in the table below:
+
+\begin{table}[htbp]
+\Large
+\begin{tabular}{|l|l|c|}
+\hline
+Edge & Whether In MST & Order \\ \hline
+AB   & \begin{oneparcheckboxes}\choice Not In MST\space\choice In MST\end{oneparcheckboxes} &       \\ \hline
+AD   & \begin{oneparcheckboxes}\choice Not In MST\space\choice In MST\end{oneparcheckboxes} &       \\ \hline
+AE   & \begin{oneparcheckboxes}\choice Not In MST\space\choice In MST\end{oneparcheckboxes} &       \\ \hline
+AF   & \begin{oneparcheckboxes}\choice Not In MST\space\choice In MST\end{oneparcheckboxes} &       \\ \hline
+BC   & \begin{oneparcheckboxes}\choice Not In MST\space\choice In MST\end{oneparcheckboxes} &       \\ \hline
+BD   & \begin{oneparcheckboxes}\choice Not In MST\space\choice In MST\end{oneparcheckboxes} &       \\ \hline
+BE   & \begin{oneparcheckboxes}\choice Not In MST\space\choice In MST\end{oneparcheckboxes} &       \\ \hline
+BG   & \begin{oneparcheckboxes}\choice Not In MST\space\choice In MST\end{oneparcheckboxes} &       \\ \hline
+CD   & \begin{oneparcheckboxes}\choice Not In MST\space\choice In MST\end{oneparcheckboxes} &       \\ \hline
+CG   & \begin{oneparcheckboxes}\choice Not In MST\space\choice In MST\end{oneparcheckboxes} &       \\ \hline
+DE   & \begin{oneparcheckboxes}\choice Not In MST\space\choice In MST\end{oneparcheckboxes} &       \\ \hline
+DF   & \begin{oneparcheckboxes}\choice Not In MST\space\choice In MST\end{oneparcheckboxes} &       \\ \hline
+\end{tabular}
+\end{table}

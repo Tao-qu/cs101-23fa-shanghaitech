@@ -1,0 +1,40 @@
+\titledquestion{K-Merge}
+
+Recall that in merge sort, we learned how to merge two sorted arrays into one in linear time. In this question, we want to design a function that merge $K$ sorted arrays into one.
+
+For example, here are 3 sorted arrays:
+\begin{align*}
+    &1,5,9\\
+    &2,3,6,7\\
+    &4,6,7,9
+\end{align*}
+and we want to merge them as:
+\begin{align*}
+    &1,2,3,4,5,6,6,7,7,9,9
+\end{align*}
+
+In the following question, suppose the sum of the lengths of the $K$ arrys is $n$. Here, assume $K=\omega(1)$ and $\log K=o(\log n)$.
+
+\begin{parts}
+    \part[2] Alice does not merge $K$ arrays at once. Instead, she decides to merge 2 of them each time. If she randomly choose 2 arrays and merges them, what is the time complexity of her algorithm in the \textbf{worst case}? You don't need to justify your answer.
+    \begin{solution}
+        ~
+    \end{solution}
+
+    \part[2] Recall that in \textbf{worst case} merging two sorted arrays with lengths $n_1$ and $n_2$ needs $n_1+n_2-1$ comparisons. Now Alice wants to minimize the worst case number of comparisons in her algorithm. How should she choose the two arrays each time? Which algorithm does this strategy coincides with? \textbf{Briefly} give your answer.
+    \begin{solution}
+        \vspace{2cm}
+    \end{solution}
+
+    \part[2] Bob designs an algorithm that merges the $K$ arrays at once by modifying the merge function in merge sort. Each time, he looks up to the front element in each array and finds the smallest one among them. Then he puts this element at the back of his answer array and pop it from its original array. What is the time complexity of Bob's algorithm? \textbf{Briefly} justify your answer.
+    \begin{solution}
+        \vspace{4cm}
+    \end{solution}
+
+    \part[3] Now you need to improve Bob's algorithm to a better time complexity. \textbf{Briefly} describe your algorithm in natural language and give the complexity of your algorithm. Please focus on how to find the smallest front element in a shorter time. 
+    \begin{solution}
+        \vspace{7cm}
+    \end{solution}
+    
+\end{parts}
+

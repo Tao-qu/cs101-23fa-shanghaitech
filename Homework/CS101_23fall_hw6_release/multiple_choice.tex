@@ -1,0 +1,100 @@
+\titledquestion{Multiple Choices}
+
+Each question has \textbf{one or more} correct answer(s). Select all the correct answer(s). For each question, you will get 0 points if you select one or more wrong answers, but you will get 1 point if you select a non-empty subset of the correct answers.
+
+Write your answers in the following table.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Note: The `LaTeX' way to answer a multiple-choices question is to replace `\choice'
+% with `\CorrectChoice', as what you did in the first question. However, there are still
+% many students who would like to handwrite their homework. To make TA's work easier,
+% you have to fill your selected choices in the table below, no matter whether you use 
+% LaTeX or not.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline 
+		(a) & (b) & (c) & (d) & (e) & (f) \\
+		\hline
+  		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		% YOUR ANSWER HERE.
+		 &  &  &  &  &  \\
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\hline
+	\end{tabular} 
+\end{table}
+
+\begin{parts}
+
+%%%%%%%%%%%%%% (a) %%%%%%%%%%%%%%
+\part[2] Which of the following statements about heaps are true?
+
+\begin{choices}
+    \choice We can build a heap from an array in linear time through Floyd's method, so we can sort an array in linear time through heap sort.
+    \choice In a complete binary min-heap, the sum of values of the internal nodes are no greater than that of leaf nodes. 
+    \choice For any node $a$ in a heap, the subtree of the tree with root $a$ is still a heap. 
+    \choice If we use a min-heap to do heap sort, we can sort an array in decreasing order.
+\end{choices}
+
+%%%%%%%%%%%%%% (b) %%%%%%%%%%%%%%
+\part[2] Which of the following statements about Huffman Coding Algorithm are true?
+
+\begin{choices}
+    \choice Huffman Coding Algorithm is a compression method without information loss.
+    \choice The Huffman Coding Tree is a complete binary tree.
+    \choice If character $a$ has a higher frequency than $b$, then the encoded $a$ has a length no longer than encoded $b$.
+    \choice Given the set of characters and the \textbf{order} of their frequencies but the exact frequencies unknown, we can still determine the length of each encoded character.
+\end{choices}
+
+%%%%%%%%%%%%%% (c) %%%%%%%%%%%%%%
+\part[2] Which of the followings can be a set of decoded characters in Huffman Coding Algorithm?
+
+\begin{choices}
+    \choice $\{00,0100,0101,011,10,11\}$
+    \choice $\{0,100,101,10,11\}$
+    \choice $\{0,10,110,1110,11110,111110\}$
+    \choice $\{00,010,011,110,111\}$
+\end{choices}
+
+%%%%%%%%%%%%%% (d) %%%%%%%%%%%%%%
+\part[2] Suppose there are two arrays: $\{a_i\}_{i=1}^n$ is an \textbf{ascending} array with $n$ distinct elements. $\{b_i\}_{i=1}^n$ is the reverse of $a$, i.e. $b_i=a_{n-i+1}$. Which of the following statements are true?
+
+\begin{choices}
+    \choice If we run Floyd's method to build a min-heap for each of the two arrays, the resulting heap will be the same.
+    \choice If we build a complete binary min-heap by inserting $a_i$ sequentially into an empty heap, the runtime of this process is $\Theta(n)$.
+    \choice If we build a complete binary min-heap by inserting $b_i$ sequentially into an empty heap, the runtime of this process is $\Theta(n)$.
+    \choice If we run heap sort on $\{b_i\}_{i=1}^n$, the runtime is $\Theta(n)$.
+    
+\end{choices}
+
+%%%%%%%%%%%%%% (e) %%%%%%%%%%%%%%
+\part[2] Which of the following statements about BST are true?
+
+\begin{choices}
+    \choice The post-order traversal of a BST is an array of descending order.
+    \choice For a BST, the newly inserted node will always be a leaf node.
+    \choice Given an array, suppose we construct a BST (without balancing) by sequentially inserting the elements of the array into an empty BST. Then the time complexity of this process is $O(n\log n)$ in all cases.
+    \choice Given a BST with member variable \ttt{tree\_size} (the number of descendants of this node) and a number $x$, we can find out how many elements in the BST is less than $x$ in $O(h)$ time where $h$ is the height of the BST.
+\end{choices}
+
+
+%%%%%%%%%%%%%% (f) %%%%%%%%%%%%%%
+\part[2] Which of the following statements about BST are true?
+
+\begin{choices}
+    \choice In a BST, the nodes in a subtree appear contiguously in the in-order traversal sequence of the BST.
+    \choice If we erase a node that has two children, then it will be replaced by the maximum object in its right subtree.
+    \choice There are 5 different  BSTs of a set with 3 distinct numbers.
+    \choice If a node doesn't have a right subtree, then its \textbf{next} (defined in lectures) object is the largest object (if any) that exists in the path from the node to the root.
+\end{choices}
+
+
+
+
+
+
+    
+\end{parts}
+

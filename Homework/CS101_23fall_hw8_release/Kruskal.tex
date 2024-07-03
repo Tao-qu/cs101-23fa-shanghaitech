@@ -1,0 +1,30 @@
+\titledquestion{MST with special edge}[6]
+
+Given a weighted undirected graph $G=(V, E\cup\{\mathbf{e}\})$. Other than normal graphs, one edge is defined as ``special" in the graph. For each edge in $E$, it can be represented as a triple: $e_i = (u_i,v_i,w_i)$. $u_i$ and $v_i$ mean the indices of the vertices connected by the edge, and $w_i$ means the weight of the edge. The special edge is $\mathbf{e}$. We want you to find the minimal spanning tree containing the special edge $\mathbf{e}$. Please fill in the pseudocode below to solve the question.
+
+(You may use disjoint sets in the problem. You can use "make-set", "union", "find-set" to refer to the functions of those in the disjoint set.)
+
+Hint: You can use Kruskal's algorithm to solve this problem, thinking about how to add the constraint that the spanning tree must contain $\mathbf{e}$.
+\begin{algorithm}
+\caption{Minimum Spanning Tree with Special Edge}
+\begin{algorithmic}[1] 
+    \REQUIRE $V$ vertex set, $E$ edge set, $\mathbf{e}$ special edge
+    \ENSURE Minimum Spanning Tree containing $\mathbf{e}$
+    \STATE $A \gets \varnothing$
+    \FOR {each vertex $v$ in set $V$}
+            \STATE \textsc{Make-Set}$(v)$
+    \ENDFOR
+    \STATE $ (\mathbf u, \mathbf v, \mathbf w) \gets \mathbf{e} $
+    \STATE \underline{\hspace{3cm}}
+    \STATE Add $\mathbf{e}$ to set $A$
+    \STATE Sort(E) \COMMENT{Sort the edge in ascending weight}
+    \FOR {each edge $e$ in set $E$}
+        \STATE $(u, v, w)\gets e$
+        \IF {\underline{\hspace{3cm}}}
+            \STATE Add $(u, v, w)$ to set $A$
+            \STATE \underline{\hspace{3cm}}
+        \ENDIF
+    \ENDFOR
+    \RETURN $A$
+\end{algorithmic}
+\end{algorithm}

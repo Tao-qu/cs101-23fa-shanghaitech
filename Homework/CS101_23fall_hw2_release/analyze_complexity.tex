@@ -1,0 +1,24 @@
+\titledquestion{Analysing the Time Complexity of a C++ Function}[4]
+
+What is the time complexity of \lstinline{fun} (in the form of \(\Theta(f(n))\), where \(n\) is the size of the \lstinline{vector a})?
+
+\begin{cpp}
+void fun(std::vector<int> a) {
+    int n = a.size();
+    for (int i = 1; i < n; i *= 2) {
+        // do O(1) operations
+        for (int j = 0; j < n; j += i * 2) {
+            // do O(1) operations
+            for (int k = 0; k < i; ++k) {
+                // do O(1) operations
+            }
+        }
+    }
+}
+\end{cpp}
+
+\textbf{NOTE}: Please clearly demonstrate your complexity analysis: you should give the complexity of the basic parts of an algorithm first, and then analyse the complexity of larger parts. The answer of the total complexity alone only accounts for 1pt.
+
+\begin{solution}
+\vspace{4.6in}
+\end{solution}

@@ -1,0 +1,93 @@
+\titledquestion{Element(s) Selection}
+
+\begin{parts}
+\part{} \textbf{Selection of the \(k\)-th Minimal Value} \par
+In this part, we will design an algorithm to find the \(k\)-th minimal value of a given array \(\langle a_1,\cdots,a_n\rangle\) of length \(n\) with \emph{distinct} elements for an integer \(k\in[1,n]\). We say \(a_x\) is the \(k\)-th minimal value of \(a\) if there are exactly \(k-1\) elements in \(a\) that are less than \(a_x\), i.e.
+\[\left|\left\{i\mid a_i<a_x\right\}\right|=k-1.\]
+Consider making use of the `\textbf{partition}' procedure in quick-sort. The function has the signature
+\begin{cpp}
+  int partition(int a[], int l, int r);
+\end{cpp}
+which processes the subarray \(\langle a_l,\cdots,a_r\rangle\). It will choose a pivot from the subarray, place all the elements that are less than the pivot before it, and place all the elements that are greater than the pivot after it. After that, the index of the pivot is returned.
+
+Our algorithm to find the \(k\)-th minimal value is implemented below.
+\begin{cpp}
+  // returns the k-th minimal value in the subarray a[l],...,a[r].
+  int kth_min(int a[], int l, int r, int k) {
+    auto pos = partition(a, l, r), num = pos - l + 1;
+    if (num == k)
+      return a[pos];
+    else if (num > k)
+      return kth_min(______________________________);
+    else
+      return kth_min(______________________________);
+  }
+\end{cpp}
+By calling \lstinline{kth_min(a, 1, n, k)}, we will get the answer.
+
+\begin{subparts}
+    \subpart[2] Fill in the blanks in the code snippet above.
+    \subpart[2] What's the time complexity of our algorithm in the \textbf{worst case}? Please answer in the form of \(\Theta(\cdot)\) and fully justify your answer.
+    \begin{solution}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Replace `\vspace{2.5in}' with your answer.
+    \vspace{2.5in}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \end{solution}
+\end{subparts}
+
+\newpage
+
+\part{} \textbf{Batched Selection} \par
+
+Despite the worse-case time complexity of the algorithm in part(a), it actually finds the $k$-th minimal value of \(\langle a_1,\cdots,a_n\rangle\) in expected $O(n)$ time. In this part, we will design a divide-and-conquer algorithm to answer $m$ selection queries for distinct $k_1, k_2, \cdots, k_m$ where $k_1 < k_2 < \cdots < k_m$ on an given array $a$ of n distinct integers (i.e. finding the $k_1$-th, $k_2$-th,$\cdots$,$k_m$-th minimal elements of $a$) and here $m$ satisfies $m = \Theta(\log n)$.
+
+\begin{subparts}
+    \subpart[1] Given that $x$ is the $k_p$-th minimal value of $a$ and $y$ is the $k_q$-th minimal value of $a$ for $1 \leq p < q \leq m$, which of the following is true?
+    
+    \begin{oneparcheckboxes}
+        \choice $x < y$
+        \choice $x = y$
+        \choice $x > y$
+    \end{oneparcheckboxes}
+
+    
+
+    \subpart[2] Suppose by calling the algorithm in part(a), we have already found $z$ to be the $k_l$-th minimal value of $a$ for $1 < l < m$. Let $L = \left\{a_i \mid a_i < a_z\right\}$ and $R = \left\{a_i \mid a_i > a_z\right\}$. What can you claim about the $k_1$-th,$\cdots$,$k_{l-1}$-th minimal elements of $a$ and the $k_{l+1}$-th,$\cdots$,$k_{m}$-th minimal elements of $a$?
+    
+    \begin{solution}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Replace `\vspace{1in}' with your answer.
+    \vspace{1in}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+    \end{solution}
+    
+    \subpart[6] Based on your answers of previous parts, design a divide-and-conquer algorithm, \textbf{which calls the algorithm in part(a) as a subroutine}, for this problem. Your algorithm should runs in \textbf{expected} $O(n \log m) = O(n \log \log n)$ time. Any algorithms that run in $\Omega(n \log n)$ time will get no credit. Make sure to provide \textbf{clear description} of your algorithm design in \textbf{natural language}, with \textbf{pseudocode} if necessary.
+    
+    \begin{solution}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Replace `\vspace{2.5in}' with your answer.
+    \vspace{2.5in}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+    \end{solution}
+
+    \newpage
+
+    \begin{solution}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Replace `\vspace{4.5in}' with your answer.
+    \vspace{4.5in}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+    \end{solution}    
+    
+    \subpart[2] Provide your reasoning for why your algorithm in the previous part runs in expected $O(n\log m)$ time using the \textbf{recursion-tree} method.
+    \begin{solution}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Replace `\vspace{3in}' with your answer.
+    \vspace{3in}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      
+    \end{solution}
+    
+\end{subparts}
+
+\end{parts}

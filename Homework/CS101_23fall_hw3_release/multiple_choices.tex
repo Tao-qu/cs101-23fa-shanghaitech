@@ -1,0 +1,63 @@
+\titledquestion{Multiple Choices}
+
+Each question has \textbf{one or more} correct answer(s). Select all the correct answer(s). For each question, you will get 0 points if you select one or more wrong answers, but you will get 1 point if you select a non-empty subset of the correct answers.
+
+Write your answers in the following table.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		(a) & (b) & (c) & (d) \\
+        % ------------------------
+        % Fill your answer here
+        % ------------------------
+		\hline
+	   &     &   &  \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{parts}
+
+        \part[2] which of the sorts are in-place sorting algorithm?
+
+        \begin{choices}
+            \choice Insertion-sort
+            \choice Bubble-sort
+            \choice Merge-sort
+            \choice None of all
+        \end{choices}
+
+	\part[2] Which of the following situations are \textbf{true} for an array of \(n\) random numbers?
+
+	\begin{choices}
+		\choice The number of inversions in this array can be found by applying a recursive algorithm adapted from merge-sort in \(\Theta(n\log n)\) time.
+		\choice If it has no more than n inversions, it can be sorted in \(O(n)\) time.
+		\choice If it has exactly \(n(n-1)/2\) inversions, it can be sorted in \(O(n)\) time.
+		\choice If the array is \(\langle 8,6,3,7,4\rangle\), there are 6 inversions.
+	\end{choices}
+
+
+        \part[2] Which of the following statements are true?
+
+	\begin{choices}
+		\choice For an array of length $n$, in the \(k\)-th iteration of insertion-sort, finding a correct position for a new element to be inserted at takes \(\Theta(k)\) time. If we use \emph{binary-search} instead (which takes \(\Theta(\log k)\) time), it is possible to optimize the total running time to \(\Theta(n\log n)\).
+		\choice A sorting algorithm is stable if its worst-case time complexity is the same as its best-case time complexity.
+		\choice Merge-sort requires \(\Theta(\log n)\) extra space when sorting an array of n elements.
+		\choice Given 2 sorted lists of size m and n respectively, and we want to merge them to one sorted list by mergesort. Then in the worst case, we need $m+n-1$ comparisons.
+	\end{choices}
+
+
+        \part[2] Choose the situation where \textbf{insertion sort} is the most suitable among insertion sort, bubble sort and merge sort. Your choice should be the one that satisfies all the special constraints and is most efficient.
+
+        \begin{choices}
+            \choice Sorting an array of coordinates of points \(\langle(x_1,y_1),\cdots,(x_n,y_n)\rangle\) on a 2d plane in ascending order of the \(x\) coordinate, while preserving the original order of the \(y\) coordinate for any pair of elements \((x_i,y_i),(x_j,y_j)\) with \(x_i=x_j\).
+            \choice Sorting an array that is \emph{almost} sorted with only \(n/2\) inversions.
+            \choice Sorting an array on an embedded system with quite limited memory. You may only use \(\Theta(1)\) extra space, but a high time cost is acceptable.
+            \choice Given a database with a large number of records. You need to sort the record with high efficiency.
+        \end{choices}
+
+\end{parts}
+
+
